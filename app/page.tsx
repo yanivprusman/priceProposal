@@ -1,37 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ProposalForm from './components/ProposalForm';
 import ProposalPreview, { ProposalData, defaultProposal } from './components/ProposalPreview';
 
-const STORAGE_KEY = 'priceProposal_data';
-
-function loadSavedData(): ProposalData {
-  if (typeof window === 'undefined') return defaultProposal;
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) return defaultProposal;
-  const parsed = JSON.parse(saved) as ProposalData;
-  // Always use today's date
-  parsed.date = defaultProposal.date;
-  return parsed;
-}
-
 export default function Home() {
   const [data, setData] = useState<ProposalData>(defaultProposal);
-  const [loaded, setLoaded] = useState(false);
-
-  // Load saved data on mount
-  useEffect(() => {
-    setData(loadSavedData());
-    setLoaded(true);
-  }, []);
-
-  // Save to localStorage on every change (after initial load)
-  useEffect(() => {
-    if (loaded) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    }
-  }, [data, loaded]);
 
   const handlePrint = () => {
     window.print();

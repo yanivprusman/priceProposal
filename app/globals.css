@@ -1,2 +1,27 @@
 @import "tailwindcss";
 @source "../lib/feedback-lib";
+
+body {
+  font-family: var(--font-heebo), sans-serif;
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  #proposal-preview {
+    width: 100%;
+    min-height: auto;
+    padding: 15mm;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+}

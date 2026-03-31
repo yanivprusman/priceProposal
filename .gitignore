@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# User data
+/data
+
 # Bind-mounted from addnewfeature (source of truth)
 lib/feedback-lib/
 app/api/feedback/

@@ -1,10 +1,12 @@
 'use client';
 
-import { ProposalData } from './ProposalPreview';
+import { ProposalData } from '@/lib/types';
 
 interface Props {
   data: ProposalData;
+  name?: string;
   onChange: (data: ProposalData) => void;
+  onNameChange?: (name: string) => void;
   onPrint: () => void;
 }
 
@@ -46,7 +48,7 @@ function Field({
   );
 }
 
-export default function ProposalForm({ data, onChange, onPrint }: Props) {
+export default function ProposalForm({ data, name, onChange, onNameChange, onPrint }: Props) {
   const set = (key: keyof ProposalData) => (v: string) =>
     onChange({ ...data, [key]: v });
 
@@ -54,6 +56,9 @@ export default function ProposalForm({ data, onChange, onPrint }: Props) {
     <div className="space-y-4 p-6" dir="rtl">
       <h2 className="text-lg font-bold text-gray-900 mb-2">פרטי ההצעה</h2>
 
+      {name !== undefined && onNameChange && (
+        <Field label="שם ההצעה" value={name} onChange={onNameChange} />
+      )}
       <Field label="שם חברה" value={data.companyName} onChange={set('companyName')} />
       <Field label="תאריך" value={data.date} onChange={set('date')} />
       <Field label="כותרת" value={data.title} onChange={set('title')} />

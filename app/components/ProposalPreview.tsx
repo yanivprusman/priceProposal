@@ -1,38 +1,7 @@
 'use client';
 
-export interface ProposalData {
-  companyName: string;
-  date: string;
-  title: string;
-  body: string;
-  terms: string;
-  contactName: string;
-  contactPhone: string;
-  contactEmail: string;
-}
-
-export const defaultProposal: ProposalData = {
-  companyName: 'ג.ת פרויקטים',
-  date: new Date().toLocaleDateString('he-IL', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }),
-  title: 'הצעת מחיר לכיבי הלבשה',
-  body: `הצעת מחיר עבור כיבי 3 דירות בתל אביב
-שטח כולל של כ-200 מ"ר כולל דירה
-מחיר: 43,000 ₪
-
-כולל חומרים ועבודה מלאה
-ביצוע מקצועי בהתאם לתקנים`,
-  terms: `לוח זמנים: 12 ימי עבודה מיום תחילת העבודה
-תוקף ההצעה: עד 1/6/2024
-תנאי תשלום: 50% בתחילת העבודה, 50% בסיום`,
-  contactName: '',
-  contactPhone: '055-6877-260',
-  contactEmail: 'Yantopcomel@gmail.com',
-};
+import { ProposalData } from '@/lib/types';
+export type { ProposalData };
 
 const STRIPE_COLORS = [
   '#5C4033',

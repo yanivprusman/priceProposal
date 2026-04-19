@@ -8,5 +8,5 @@ const FeedbackChat = dynamic(
 );
 
 export default function FeedbackWrapper() {
-  return <FeedbackChat issuesPath="/issues" />;
+  return <FeedbackChat issuesPath="/feedback-lib-issues" />;
 }

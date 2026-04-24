@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { feedbackBackend } from '@/lib/feedback-backend';
 
 const FeedbackChat = dynamic(
-  () => import('@automate/feedback-lib/core').then(m => m.FeedbackChat),
+  () => import('@claudecontrol/feedback-lib').then(m => m.FeedbackChat),
   { ssr: false }
 );
 
